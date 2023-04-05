@@ -39,7 +39,7 @@ export default function AddForm() {
             <div className="col-9 pe-1"><input  placeholder="Task Name" className="form-control" {...register("taskName")} />
             </div>
             <div className="col-3 ps-1">
-              <input type="submit" className="btn btn-success d-block w-100 mx-0 px-0"></input>
+              <input type="submit" className="btn btn-success d-block w-100 mx-0 px-0" value="Add Task"></input>
             </div>
             
           

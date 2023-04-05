@@ -3,7 +3,7 @@ const app = express()
 const port = 5000
 const mysql = require('mysql2');
 const axios = require('axios');
-const db_name = 'Your MySQL DB name'
+const db_name = 'your db name'
 
 app.use(require('body-parser').urlencoded({ extended: false }));
 // create the connection to database
