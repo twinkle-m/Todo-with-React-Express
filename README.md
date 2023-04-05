@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+This is a node todo list built with React GUI, ExpressJS API, and a MySQL Database 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+### Project setup ###
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Step 1: Create a new MySQL Database
+Step 2: Create a new table called `Tasks` in your new DB using the following SQL Query
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+CREATE TABLE
+  `tasks` (
+    `id` int unsigned NOT NULL AUTO_INCREMENT,
+    `taskName` varchar(255) NOT NULL,
+    `complete` tinyint(1) NOT NULL DEFAULT '0',
+    PRIMARY KEY (`id`)
+  ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
 
-### `npm test`
+Step 3: in project\src\server.js, set const db_name to your Database name
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The project is now ready to run.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### How to start the project ###
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Step 1: run node server.js in project\src\ folder. This will start the expressJS server on localhost port 5000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Step 2: run npm start in project folder. This will start the react server on localhost port 3000
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### NodeJS API Details ###
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1: method GET http://localhost:5000/tasks
+Gets task list from DB
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2: method GET http://localhost:5000/api/tasks/:id
+Deletes task that from DB using the id given
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3: method POST http://localhost:5000/api/tasks/
+Creates task in the DB
+Parameter to send is taskName as url-encoded
 
-## Learn More
+4: method GET http://localhost:5000/api/tasks/complete/:id
+Sets the task as completed with the given id
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5: Method GET http://localhost:5000/api/tasks/undo/:id
+Sets the task as incomplete with given id

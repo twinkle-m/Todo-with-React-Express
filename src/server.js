@@ -3,13 +3,15 @@ const app = express()
 const port = 5000
 const mysql = require('mysql2');
 const axios = require('axios');
+const db_name = 'Your MySQL DB name'
+
 app.use(require('body-parser').urlencoded({ extended: false }));
 // create the connection to database
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: 'node_js_crud'
+  database: db_name
 });
 
 // simple query
@@ -83,26 +85,6 @@ app.get('/api/tasks/undo/:id', (req, res) => {
 })
 
 
-
-
-app.get('/create', (req, res) => {
-  const headers = {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  };
-  const axiosRes =  axios.
-    post('http://localhost:3000/tasks', 'taskName=test', { headers });
-    res.send("task created")
-  }
-  )
-  app.get('/update', (req, res) => {
-    const headers = {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    };
-    const axiosRes =  axios.
-      post('http://localhost:3000/tasks/3', 'taskName=newtest&complete=1', { headers });
-      res.send("task created")
-    }
-    )
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
