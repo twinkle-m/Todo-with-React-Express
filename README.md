@@ -6,6 +6,7 @@ This is a node todo list built with React GUI, ExpressJS API, and a MySQL Databa
 ### Project setup ###
 
 Step 1: Create a new MySQL Database
+
 Step 2: Create a new table called `Tasks` in your new DB using the following SQL Query
 
 CREATE TABLE
