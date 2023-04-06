@@ -1,17 +1,19 @@
+let dotenv = require('dotenv').config()
 const express = require('express')
 const app = express()
-const port = 5000
+const port = process.env.port
 const mysql = require('mysql2');
 const axios = require('axios');
-const db_name = 'your db name'
+
+
 
 app.use(require('body-parser').urlencoded({ extended: false }));
 // create the connection to database
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: db_name
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB
 });
 
 // simple query

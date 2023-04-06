@@ -16,17 +16,18 @@ CREATE TABLE
     PRIMARY KEY (`id`)
   ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
 
-Step 3: in project\src\server.js, set const db_name to your Database name
+Step 3: in /src folder, set environment variables in the .env file
+
+Step 4: If you have changed the port, make sure to change the proxy in the package.json file
 
 The project is now ready to run.
 
 
 ### How to start the project ###
 
-Step 1: run node server.js in project\src\ folder. This will start the expressJS server on localhost port 5000
+you can run the project by running npm start
 
-Step 2: run npm start in project folder. This will start the react server on localhost port 3000
-
+This runs an ExpressJS Server at the port specified in .env and a React server at localhost port 3000. Make sure to change the proxy in package.json if you have changed the port in .env
 
 ### NodeJS API Details ###
 
