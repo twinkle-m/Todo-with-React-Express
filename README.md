@@ -1,6 +1,7 @@
 This is a node todo list built with React GUI, ExpressJS API, and a MySQL Database 
 
-
+### Preview ###
+![preview](https://user-images.githubusercontent.com/129972263/230641346-25ac86c2-6a25-4c2d-9d3e-c8ea42e02133.png)
 
 
 ### Project setup ###
